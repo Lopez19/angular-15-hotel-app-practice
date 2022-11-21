@@ -1,1 +1,63 @@
-<p>login works!</p>
+<div class="hold-transition login-page">
+  <div class="login-page__bg"></div>
+  <div class="login-box animate__animated animate__flipInX">
+    <div class="login-logo">
+      <em class="fas fa-solid fa-door-open"></em>
+      <br />
+      <a href="#">Hotel</a>
+    </div>
+    <!-- /.login-logo -->
+
+    <div class="card">
+      <div class="card-body login-card-body">
+        <p class="login-box-msg">Iniciar Sesión</p>
+
+        <form (ngSubmit)="login()" [formGroup]="loginForm">
+          <div class="input-group mb-3">
+            <!-- Ingreso Usuario -->
+            <input
+              formControlName="username"
+              type="text"
+              class="form-control"
+              placeholder="Usuario"
+              required
+            />
+
+            <div class="input-group-append">
+              <div class="input-group-text">
+                <span class="fas fa-envelope"></span>
+              </div>
+            </div>
+          </div>
+
+          <div class="input-group mb-3">
+            <!-- Ingreso Password -->
+            <input
+              formControlName="password"
+              type="password"
+              class="form-control"
+              placeholder="Password"
+              required
+            />
+
+            <div class="input-group-append">
+              <div class="input-group-text">
+                <span class="fas fa-lock"></span>
+              </div>
+            </div>
+          </div>
+
+          <button
+            type="submit"
+            class="btn btn-primary btn-block btn-flat"
+            [disabled]="loginForm.invalid"
+          >
+            Ingresar
+          </button>
+        </form>
+      </div>
+      <!-- /.login-card-body -->
+    </div>
+  </div>
+  <!-- /.login-box -->
+</div>
