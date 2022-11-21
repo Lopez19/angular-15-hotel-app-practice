@@ -1,0 +1,60 @@
+<!-- Main Sidebar Container -->
+<aside class="main-sidebar sidebar-dark-primary elevation-4">
+  <!-- Brand Logo -->
+  <a href="inicio" class="brand-link">
+    <img
+      src="./assets/dist/img/AdminLTELogo.png"
+      class="brand-image img-circle elevation-3"
+      style="opacity: 0.8"
+      alt="Hotel Logo"
+    />
+
+    <span class="brand-text font-weight-light">Hotel</span>
+  </a>
+
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <!-- Sidebar Menu -->
+    <nav class="mt-2">
+      <ul
+        class="nav nav-pills nav-sidebar flex-column"
+        data-widget="treeview"
+        role="menu"
+        data-accordion="false"
+      >
+        <!-- Botón ir al sitio -->
+        <li class="nav-item">
+          <a href="#" class="nav-link active" target="_blank">
+            <em class="nav-icon fas fa-globe"></em>
+            <p>Ir al sitio</p>
+          </a>
+        </li>
+
+        <!-- Menu -->
+        <li class="nav-item" *ngFor="let item of menuItems">
+          <a href="#" class="nav-link">
+            <em class="{{ item.icon }}"></em>
+            <p class="ml-2">
+              {{ item.title }}
+              <span class="badge bg-info ml-2">
+                {{ item.submenu.length }}
+              </span>
+              <i class="right fas fa-angle-left"></i>
+            </p>
+          </a>
+          <!-- submenu -->
+          <ul class="nav nav-treeview">
+            <li class="nav-item" *ngFor="let submenu of item.submenu">
+              <a [routerLink]="submenu.link" class="nav-link">
+                <em class="{{ submenu.icon }}"></em>
+                <p class="ml-2">{{ submenu.title }}</p>
+              </a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+    <!-- /.sidebar-menu -->
+  </div>
+  <!-- /.sidebar -->
+</aside>

@@ -1,0 +1,11 @@
+{
+  "title": "Dashboard",
+  "icon": "fas fa-tachometer-alt",
+  "submenu": [
+    {
+      "title": "Dashboard",
+      "link": "/dashboard",
+      "icon": "fas fa-tachometer-alt"
+    }
+  ]
+}
