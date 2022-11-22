@@ -14,39 +14,42 @@
 
           <div class="card-body">
             <table
-              class="table table-bordered table-striped dt-responsive tablaAdministradores"
+              class="table table-bordered table-striped dt-responsive nowrap"
               aria-describedby="example1_info"
+              datatable
+              [dtOptions]="dtOptions"
+              [dtTrigger]="dtTrigger"
             >
               <thead>
                 <tr>
-                  <th style="width: 10px">#</th>
+                  <th style="width: 10px">ID</th>
                   <th>Nombre</th>
                   <th>Usuario</th>
                   <th>Perfil</th>
-                  <th>Estado</th>
                   <th>Acciones</th>
                 </tr>
               </thead>
-
               <tbody>
-                <tr>
-                  <td>1</td>
-                  <td>Horacio</td>
-                  <td>Lopez</td>
-                  <td>Administrador</td>
+                <tr *ngFor="let administrador of persons; let i = index">
+                  <td>{{ i + 1 }}</td>
+                  <td>{{ administrador.nombre }}</td>
+                  <td>{{ administrador.usuario }}</td>
+                  <td>{{ administrador.perfil }}</td>
                   <td>
-                    <button class="btn btn-success btn-sm">Activo</button>
-                  </td>
-                  <td>
-                    <div class="btn-group">
-                      <button class="btn btn-warning btn-sm">
-                        <i class="fas fa-pencil-alt text-white"></i>
-                      </button>
-
-                      <button class="btn btn-danger btn-sm">
-                        <i class="fas fa-trash-alt"></i>
-                      </button>
-                    </div>
+                    <button
+                      mat-raised-button
+                      (click)="onEdit(administrador)"
+                      color="primary"
+                    >
+                      Editar
+                    </button>
+                    <button
+                      mat-raised-button
+                      (click)="onDelete(administrador)"
+                      color="warn"
+                    >
+                      Eliminar
+                    </button>
                   </td>
                 </tr>
               </tbody>

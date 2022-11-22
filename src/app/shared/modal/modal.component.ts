@@ -15,7 +15,6 @@ import { AdministradoresService } from 'src/app/hotel/services/administradores.s
 })
 export class ModalComponent implements OnInit {
   // Variables
-  hide = true;
   modalForm!: FormGroup;
 
   // Constructor
@@ -28,6 +27,7 @@ export class ModalComponent implements OnInit {
 
   ngOnInit(): void {
     this.modalForm = new FormGroup({
+      idAdmin: new FormControl(''),
       nombre: new FormControl('', [
         Validators.required,
         Validators.minLength(3),
@@ -45,13 +45,24 @@ export class ModalComponent implements OnInit {
         Validators.minLength(3),
       ]),
     });
+
+    if (this.data.type === 'edit') {
+      this.setValues();
+    }
+  }
+
+  // Setear los valores del formulario
+  setValues() {
+    this.modalForm.setValue({
+      idAdmin: this.data.administrador._id,
+      nombre: this.data.administrador.nombre,
+      usuario: this.data.administrador.usuario,
+      password: this.data.administrador.password,
+      perfil: this.data.administrador.perfil,
+    });
   }
 
   // Métodos
-  onNoClick(): void {
-    this.dialogRef.close();
-  }
-
   onSubmit() {
     if (this.modalForm.valid) {
       this.dialogRef.close(this.modalForm.value);

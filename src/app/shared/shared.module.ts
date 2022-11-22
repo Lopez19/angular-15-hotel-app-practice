@@ -12,6 +12,7 @@ import { RouterModule } from '@angular/router';
 import { ModalComponent } from './modal/modal.component';
 
 import { MaterialModule } from './material/material.module';
+import { DataTablesModule } from 'angular-datatables';
 
 import { AuthGuard } from '../hotel/guards/auth.guard';
 import { TokenInterceptorService } from '../hotel/services/token-interceptor.service';
@@ -31,6 +32,7 @@ import { TokenInterceptorService } from '../hotel/services/token-interceptor.ser
     ReactiveFormsModule,
     FormsModule,
     HttpClientModule,
+    DataTablesModule,
   ],
   exports: [
     HeaderComponent,
@@ -39,6 +41,7 @@ import { TokenInterceptorService } from '../hotel/services/token-interceptor.ser
     BreadcrumbsComponent,
     MaterialModule,
     HttpClientModule,
+    DataTablesModule,
   ],
   providers: [
     AuthGuard,

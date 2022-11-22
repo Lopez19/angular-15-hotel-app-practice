@@ -22,4 +22,11 @@ export class AdministradoresService {
   getAdmins(): any {
     return this.http.get(`${this.url}administradores`);
   }
+
+  // Método para editar un administrador
+  updateAdmin(admin: any): any {
+    return this.http.put(`${this.url}administradores/${admin.idAdmin}`, admin);
+  }
+
+  // Método para eliminar un administrador
 }

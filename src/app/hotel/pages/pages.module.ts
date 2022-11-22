@@ -9,7 +9,6 @@ import { AdministradoresComponent } from './administradores/administradores.comp
 
 import { SharedModule } from '../../shared/shared.module';
 import { PagesRoutingModule } from './pages-routing.module';
-import { MaterialModule } from '../../shared/material/material.module';
 
 @NgModule({
   declarations: [

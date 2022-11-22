@@ -1,10 +1,12 @@
-{
-  "height": "500px",
-  "width": "500px",
-  "data": {
-    "titile": "Crear Administrador",
-    "type": "create",
-    "entity": "administrador",
-    "icon": "Crear"
+[
+  {
+    "_id": "637c33207fbac4106309fd6d",
+    "nombre": "Horacio Lopez Moreno",
+    "usuario": "Horacio",
+    "password": "1234",
+    "perfil": "Administrador",
+    "createdAt": "2022-11-22T02:25:36.130Z",
+    "updatedAt": "2022-11-22T02:25:36.130Z",
+    "__v": 0
   }
-}
+]

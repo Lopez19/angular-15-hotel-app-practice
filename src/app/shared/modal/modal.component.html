@@ -1,6 +1,24 @@
 <h1 matDialogTitle>{{ data.title }}</h1>
 
 <mat-dialog-content class="mat-typography">
+  <div *ngIf="data.type === 'create'; else inputCrear"></div>
+  <div *ngIf="data.type === 'edit'; else inputEditar"></div>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button mat-raised-button color="warn" mat-dialog-close>Cancel</button>
+  <button
+    mat-raised-button
+    color="primary"
+    [mat-dialog-close]="true"
+    cdkFocusInitial
+    (click)="onSubmit()"
+  >
+    {{ data.action }}
+  </button>
+</mat-dialog-actions>
+
+<ng-template #inputCrear>
   <form [formGroup]="modalForm">
     <!-- Nombre -->
     <mat-form-field appearance="outline" class="mat-form-field mt-1">
@@ -34,17 +52,41 @@
       </mat-select>
     </mat-form-field>
   </form>
-</mat-dialog-content>
+</ng-template>
 
-<mat-dialog-actions align="end">
-  <button mat-raised-button color="warn" mat-dialog-close>Cancel</button>
-  <button
-    mat-raised-button
-    color="primary"
-    [mat-dialog-close]="true"
-    cdkFocusInitial
-    (click)="onSubmit()"
-  >
-    {{ data.action }}
-  </button>
-</mat-dialog-actions>
+<ng-template #inputEditar>
+  <form [formGroup]="modalForm">
+    <input type="hidden" formControlName="idAdmin" />
+    <!-- Nombre -->
+    <mat-form-field appearance="outline" class="mat-form-field mt-1">
+      <mat-label>Ingrese el nombre</mat-label>
+      <input matInput autocomplete="off" formControlName="nombre" />
+      <mat-icon matSuffix>person</mat-icon>
+    </mat-form-field>
+    <!-- Usuario -->
+    <mat-form-field appearance="outline" class="mat-form-field">
+      <mat-label>Ingrese el usuario</mat-label>
+      <input matInput autocomplete="off" formControlName="usuario" />
+      <mat-icon matSuffix>manage_accounts</mat-icon>
+    </mat-form-field>
+    <!-- Password -->
+    <mat-form-field appearance="outline" class="mat-form-field">
+      <mat-label>Ingrese la contraseña</mat-label>
+      <input
+        matInput
+        autocomplete="off"
+        type="password"
+        formControlName="password"
+      />
+      <mat-icon matSuffix>password</mat-icon>
+    </mat-form-field>
+    <!-- Perfil -->
+    <mat-form-field appearance="outline" class="mat-form-field">
+      <mat-label>Seleccione el perfil</mat-label>
+      <mat-select placeholder="Perfil" formControlName="perfil">
+        <mat-option value="Administrador">Administrador</mat-option>
+        <mat-option value="Editor">Editor</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </form>
+</ng-template>
