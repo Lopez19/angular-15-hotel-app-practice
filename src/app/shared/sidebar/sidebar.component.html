@@ -32,7 +32,7 @@
 
         <!-- Menu -->
         <li class="nav-item" *ngFor="let item of menuItems">
-          <a href="#" class="nav-link">
+          <a href="javascript:void(0);" class="nav-link">
             <em class="{{ item.icon }}"></em>
             <p class="ml-2">
               {{ item.title }}
@@ -45,7 +45,11 @@
           <!-- submenu -->
           <ul class="nav nav-treeview">
             <li class="nav-item" *ngFor="let submenu of item.submenu">
-              <a [routerLink]="submenu.link" class="nav-link">
+              <a
+                [routerLink]="submenu.link"
+                routerLinkActive="active"
+                class="nav-link"
+              >
                 <em class="{{ submenu.icon }}"></em>
                 <p class="ml-2">{{ submenu.title }}</p>
               </a>

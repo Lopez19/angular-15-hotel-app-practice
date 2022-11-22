@@ -7,11 +7,14 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { AdministradoresComponent } from './administradores/administradores.component';
 import { HabitacionesComponent } from './habitaciones/habitaciones.component';
 
+import { AuthGuard } from '../guards/auth.guard';
+
 const routes: Routes = [
   {
     // Menu
     path: 'dashboard',
     component: PagesComponent,
+    canActivate: [AuthGuard],
     children: [
       {
         // Submenu
@@ -38,4 +41,4 @@ const routes: Routes = [
   imports: [CommonModule, RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class PagesRoutingModule { }
+export class PagesRoutingModule {}

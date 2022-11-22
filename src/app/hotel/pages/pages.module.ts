@@ -7,8 +7,9 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { HabitacionesComponent } from './habitaciones/habitaciones.component';
 import { AdministradoresComponent } from './administradores/administradores.component';
 
-import { PagesRoutingModule } from './pages-routing.module';
 import { SharedModule } from '../../shared/shared.module';
+import { PagesRoutingModule } from './pages-routing.module';
+import { MaterialModule } from '../../shared/material/material.module';
 
 @NgModule({
   declarations: [
