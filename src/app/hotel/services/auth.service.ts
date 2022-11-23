@@ -9,9 +9,7 @@ export class AuthService {
   private _url = 'https://apirest-hotelapp.herokuapp.com/api/';
 
   // Constructor
-  constructor(private http: HttpClient) {
-    console.log('Servicio de autenticación listo');
-  }
+  constructor(private http: HttpClient) {}
 
   // Methods
   login(admin: any): any {

@@ -43,7 +43,6 @@ export class LoginComponent {
           this.router.navigateByUrl('/dashboard');
         },
         error: (error: any) => {
-          console.log(JSON.stringify(error));
           Swal.fire({
             icon: 'error',
             title: 'Oops...',
