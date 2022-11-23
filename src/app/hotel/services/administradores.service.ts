@@ -29,4 +29,7 @@ export class AdministradoresService {
   }
 
   // Método para eliminar un administrador
+  deleteAdmin(id: string): any {
+    return this.http.delete(`${this.url}administradores/${id}`);
+  }
 }

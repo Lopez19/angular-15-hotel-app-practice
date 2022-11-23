@@ -40,8 +40,8 @@ import { TokenInterceptorService } from '../hotel/services/token-interceptor.ser
     SidebarComponent,
     BreadcrumbsComponent,
     MaterialModule,
-    HttpClientModule,
     DataTablesModule,
+    HttpClientModule,
   ],
   providers: [
     AuthGuard,

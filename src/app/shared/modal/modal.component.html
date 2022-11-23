@@ -18,43 +18,7 @@
   </button>
 </mat-dialog-actions>
 
-<ng-template #inputCrear>
-  <form [formGroup]="modalForm">
-    <!-- Nombre -->
-    <mat-form-field appearance="outline" class="mat-form-field mt-1">
-      <mat-label>Ingrese el nombre</mat-label>
-      <input matInput autocomplete="off" formControlName="nombre" />
-      <mat-icon matSuffix>person</mat-icon>
-    </mat-form-field>
-    <!-- Usuario -->
-    <mat-form-field appearance="outline" class="mat-form-field">
-      <mat-label>Ingrese el usuario</mat-label>
-      <input matInput autocomplete="off" formControlName="usuario" />
-      <mat-icon matSuffix>manage_accounts</mat-icon>
-    </mat-form-field>
-    <!-- Password -->
-    <mat-form-field appearance="outline" class="mat-form-field">
-      <mat-label>Ingrese la contraseña</mat-label>
-      <input
-        matInput
-        autocomplete="off"
-        type="password"
-        formControlName="password"
-      />
-      <mat-icon matSuffix>password</mat-icon>
-    </mat-form-field>
-    <!-- Perfil -->
-    <mat-form-field appearance="outline" class="mat-form-field">
-      <mat-label>Seleccione el perfil</mat-label>
-      <mat-select placeholder="Perfil" formControlName="perfil">
-        <mat-option value="Administrador">Administrador</mat-option>
-        <mat-option value="Editor">Editor</mat-option>
-      </mat-select>
-    </mat-form-field>
-  </form>
-</ng-template>
-
-<ng-template #inputEditar>
+<ng-template #inputCrear #inputEditar>
   <form [formGroup]="modalForm">
     <input type="hidden" formControlName="idAdmin" />
     <!-- Nombre -->

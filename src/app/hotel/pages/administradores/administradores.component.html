@@ -14,15 +14,14 @@
 
           <div class="card-body">
             <table
-              class="table table-bordered table-striped dt-responsive nowrap"
-              aria-describedby="example1_info"
               datatable
               [dtOptions]="dtOptions"
               [dtTrigger]="dtTrigger"
+              class="table table-bordered table-striped tabla__estilo__administradores w-100"
             >
               <thead>
                 <tr>
-                  <th style="width: 10px">ID</th>
+                  <th>ID</th>
                   <th>Nombre</th>
                   <th>Usuario</th>
                   <th>Perfil</th>
@@ -36,19 +35,28 @@
                   <td>{{ administrador.usuario }}</td>
                   <td>{{ administrador.perfil }}</td>
                   <td>
+                    <!-- EditarBtn -->
                     <button
+                      class="mr-2"
                       mat-raised-button
                       (click)="onEdit(administrador)"
                       color="primary"
                     >
-                      Editar
+                      <span>
+                        <mat-icon matSuffix class="text-center">edit</mat-icon>
+                      </span>
                     </button>
+                    <!-- EliminarBtn -->
                     <button
                       mat-raised-button
-                      (click)="onDelete(administrador)"
+                      (click)="onDelete(administrador._id)"
                       color="warn"
                     >
-                      Eliminar
+                      <span>
+                        <mat-icon matSuffix class="text-center"
+                          >delete
+                        </mat-icon>
+                      </span>
                     </button>
                   </td>
                 </tr>

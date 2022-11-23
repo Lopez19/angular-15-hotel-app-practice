@@ -1,7 +1,11 @@
 import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
+
 import { AuthService } from '../../services/auth.service';
+import { Person } from '../../interfaces/person.interface';
+import { Login } from '../../interfaces/login.interface';
 
 @Component({
   selector: 'app-login',
@@ -20,7 +24,9 @@ export class LoginComponent {
     private fb: FormBuilder,
     private router: Router,
     private authServices: AuthService
-  ) {}
+  ) {
+    document.title = 'Hotel - Login';
+  }
 
   // Methods
   login = () => {
@@ -30,13 +36,19 @@ export class LoginComponent {
         password: this.loginForm.value.password,
       };
       this.authServices.login(admin).subscribe({
-        next: (data: any) => {
-          localStorage.setItem('token', data.token);
-          localStorage.setItem('data', JSON.stringify(data.data));
-          this.router.navigate(['/dashboard']);
+        next: (resp: Login) => {
+          localStorage.setItem('token', resp.token);
+          localStorage.setItem('data', JSON.stringify(resp.data));
+          localStorage.setItem('id', resp.data._id);
+          this.router.navigateByUrl('/dashboard');
         },
         error: (error: any) => {
-          console.log(error);
+          console.log(JSON.stringify(error));
+          Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: error.error.message,
+          });
         },
       });
     }

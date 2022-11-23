@@ -8,5 +8,19 @@
     "createdAt": "2022-11-22T02:25:36.130Z",
     "updatedAt": "2022-11-22T02:25:36.130Z",
     "__v": 0
+  },
+
+  {
+    "headers": {
+      "normalizedNames": {},
+      "lazyUpdate": null
+    },
+    "status": 401,
+    "statusText": "Unauthorized",
+    "url": "http://localhost:3000/api/login",
+    "ok": false,
+    "name": "HttpErrorResponse",
+    "message": "Http failure response for http://localhost:3000/api/login: 401 Unauthorized",
+    "error": { "message": "Usuario no encontrado" }
   }
 ]
