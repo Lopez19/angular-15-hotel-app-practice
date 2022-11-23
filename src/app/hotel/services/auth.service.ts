@@ -6,10 +6,12 @@ import { HttpClient } from '@angular/common/http';
 })
 export class AuthService {
   // Variables
-  private _url = 'http://localhost:3000/api/';
+  private _url = 'https://apirest-hotelapp.herokuapp.com/api/';
 
   // Constructor
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) {
+    console.log('Servicio de autenticación listo');
+  }
 
   // Methods
   login(admin: any): any {
