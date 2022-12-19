@@ -6,7 +6,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class AdministradoresService {
   // Variables
-  private url = 'https://apirest-hotelapp.herokuapp.com/api/';
+  private url = 'https://backendapi-rest-production.up.railway.app/api/';
 
   // Constructor
   constructor(private http: HttpClient) {}
